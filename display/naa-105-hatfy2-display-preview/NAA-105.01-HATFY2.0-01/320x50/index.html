@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="ad.size" content="width=320,height=50" />
+<title>ORF — Here &amp; There For You — 320x50</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0E374D;--green:#A1CE5E;--blue:#238DC1;--white:#fff;--sans:"Montserrat",Arial,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  .banner{position:relative;width:320px;height:50px;overflow:hidden;background:var(--navy);font-family:var(--sans);cursor:pointer;}
+  .banner a{display:block;width:100%;height:100%;text-decoration:none;}
+
+  .bg-gradient{position:absolute;inset:0;
+    background:radial-gradient(70% 200% at 82% 0%, rgba(37,140,192,.45) 0%, rgba(37,140,192,0) 60%),
+      linear-gradient(160deg,#0E374D 50%,#09303f 100%);}
+  .corner{position:absolute;width:49px;height:50px;pointer-events:none;}
+  .corner-top{left:0;top:0;}
+  .corner-bottom{left:271px;top:0;transform:rotate(180deg);}
+  .line-b1{position:absolute;left:259px;top:-4px;width:85px;height:85px;pointer-events:none;}
+
+  /* static photo strip with 45° cut */
+  .photo{position:absolute;left:95px;top:0;width:157px;height:50px;overflow:hidden;
+    -webkit-clip-path:polygon(50px 0,100% 0,calc(100% - 50px) 100%,0 100%);
+    clip-path:polygon(50px 0,100% 0,calc(100% - 50px) 100%,0 100%);}
+  .photo .img{position:absolute;inset:0;background:url("assets/photo.jpg") no-repeat;
+    background-size:cover;background-position:50% 50%;}
+  .photo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg, rgba(14,55,77,.96) 16%, rgba(14,55,77,0) 40%,
+      rgba(14,55,77,0) 52%, rgba(14,55,77,.96) 74%);}
+
+  .lockup{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:113px;height:37.3px;z-index:3;}
+
+  .cta{position:absolute;left:231px;top:9px;height:13px;z-index:5;
+    background:var(--green);border-radius:33px;display:flex;align-items:center;justify-content:center;
+    padding:0 11px;font-weight:700;font-size:6.5px;color:var(--navy);box-shadow:0 1px 2px rgba(0,0,0,.25);white-space:nowrap;
+    transition:background-color .2s ease;}
+  .banner:hover .cta{background:var(--white);}
+  .logo{position:absolute;left:228px;top:27px;width:70px;height:14.3px;z-index:5;}
+  .logo img{width:100%;height:100%;display:block;}
+</style>
+</head>
+<body>
+  <!-- IAB/TTD clickTag: left BLANK in-creative; The Trade Desk injects the destination at serve time -->
+  <script>var clickTag="";</script>
+  <div class="banner" id="banner">
+    <a target="_blank" rel="noopener">
+      <div class="bg-gradient"></div>
+      <img class="corner corner-top" src="assets/bg-corner-top.svg" alt="" />
+      <img class="corner corner-bottom" src="assets/bg-corner-bottom.svg" alt="" />
+      <img class="line-b1" src="assets/bg-line-bottom-1.svg" alt="" />
+
+      <div class="photo"><div class="img"></div></div>
+
+      <img class="lockup" src="assets/lockup.svg" alt="Here &amp; There For You" />
+      <div class="cta">Fly ORF</div>
+      <div class="logo"><img src="assets/orf-logo.svg" alt="ORF — Norfolk International Airport" /></div>
+    </a>
+  </div>
+  <script>(function(){var b=document.querySelector(".banner");if(b)b.addEventListener("click",function(){if(window.clickTag)window.open(window.clickTag,"_blank");});})();</script>
+</body>
+</html>

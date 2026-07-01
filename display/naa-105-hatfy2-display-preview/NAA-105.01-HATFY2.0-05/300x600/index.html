@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="ad.size" content="width=300,height=600" />
+<title>ORF — Here &amp; There For You — 300x600</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--navy:#0E374D;--green:#A1CE5E;--blue:#238DC1;--white:#fff;--sans:"Montserrat",Arial,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  .banner{position:relative;width:300px;height:600px;overflow:hidden;background:var(--navy);font-family:var(--sans);cursor:pointer;}
+  .banner a{display:block;width:100%;height:100%;text-decoration:none;}
+
+  .bg-gradient{position:absolute;inset:0;
+    background:radial-gradient(120% 80% at 100% 0%, rgba(37,140,192,.5) 0%, rgba(37,140,192,0) 55%),
+      linear-gradient(200deg,#0E374D 45%,#09303f 100%);}
+  .corner{position:absolute;width:240px;height:246px;pointer-events:none;}
+  .corner-top{left:0;top:0;}
+  .corner-bottom{right:0;bottom:0;transform:rotate(180deg);}
+  .line{position:absolute;pointer-events:none;will-change:transform;}
+  .line-top{left:20px;top:-10px;width:71px;height:71px;animation:drift-a 19s linear infinite alternate;}
+  .line-b1{left:212px;top:475px;width:140px;height:140px;animation:drift-b 13s linear infinite alternate;}
+  .line-b2{left:278px;top:440px;width:140px;height:140px;animation:drift-c 27s linear infinite alternate;}
+  @keyframes drift-a{from{transform:translate(-45px,45px);}   to{transform:translate(110px,-110px);}}
+  @keyframes drift-b{from{transform:translate(-100px,100px);} to{transform:translate(90px,-90px);}}
+  @keyframes drift-c{from{transform:translate(-60px,60px) rotate(180deg);} to{transform:translate(130px,-130px) rotate(180deg);}}
+  @media (prefers-reduced-motion:reduce){.line,.frame-photo{animation:none!important;}}
+
+  /* frames: each {headline (top) + image band (middle)}; end card {lockup + image} */
+  .frame{position:absolute;inset:0;opacity:0;transition:opacity .6s ease-in-out;pointer-events:none;}
+  .frame.active{opacity:1;}
+  /* straight top/bottom; only top-left + bottom-right corners chamfered at 45° */
+  .frame-img{position:absolute;left:0;top:172px;width:300px;height:316px;overflow:hidden;
+    -webkit-clip-path:polygon(0 60px,60px 0,100% 0,100% calc(100% - 60px),calc(100% - 60px) 100%,0 100%);
+    clip-path:polygon(0 60px,60px 0,100% 0,100% calc(100% - 60px),calc(100% - 60px) 100%,0 100%);}
+  .frame-photo{position:absolute;inset:0;background-repeat:no-repeat;background-size:cover;
+    transform:scale(1);transform-origin:50% 50%;}
+  .frame.active .frame-photo{animation:kenburns 2.2s linear forwards;}
+  @keyframes kenburns{from{transform:scale(1.05);}to{transform:scale(1);}}
+
+  .headline{position:absolute;left:28px;top:30px;width:245px;
+    font-weight:600;font-size:36px;line-height:1.1;letter-spacing:-1.4px;color:var(--white);
+    text-shadow:0 4px 10px rgba(0,0,0,.25);}
+  .headline .grad{background:linear-gradient(116deg,#A1CD5D 45%,#2DAFF3 78%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .headline .nb{white-space:nowrap;}
+
+  /* end-card lockup: centered vertically in the navy above the image (0–172px) */
+  .lockup{position:absolute;left:18px;top:16px;width:265px;height:139px;}
+
+  .cta{position:absolute;left:50%;transform:translateX(-50%);top:466px;width:178px;height:44px;
+    background:var(--green);border-radius:33px;display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:20px;color:var(--navy);box-shadow:0 3px 4px rgba(0,0,0,.25);white-space:nowrap;z-index:5;
+    transition:background-color .2s ease;}
+  .banner:hover .cta{background:var(--white);}
+  .logo{position:absolute;left:50%;transform:translateX(-50%);top:530px;width:210px;height:43px;z-index:5;}
+  .logo img{width:100%;height:100%;display:block;}
+</style>
+</head>
+<body>
+  <!-- IAB/TTD clickTag: left BLANK in-creative; The Trade Desk injects the destination at serve time -->
+  <script>var clickTag="";</script>
+  <div class="banner" id="banner">
+    <a target="_blank" rel="noopener">
+      <div class="bg-gradient"></div>
+      <img class="corner corner-top" src="assets/bg-corner-top.svg" alt="" />
+      <img class="corner corner-bottom" src="assets/bg-corner-bottom.svg" alt="" />
+      <img class="line line-top" src="assets/bg-line-top.svg" alt="" />
+      <img class="line line-b1" src="assets/bg-line-bottom-1.svg" alt="" />
+      <img class="line line-b2" src="assets/bg-line-bottom-2.svg" alt="" />
+
+      <div class="frame" data-frame>
+        <div class="frame-img"><div class="frame-photo" style="background-image:url('assets/frame-1.jpg');background-position:50% 45%;"></div></div>
+        <p class="headline"><span class="grad">Check in</span> for your flight.</p>
+      </div>
+      <div class="frame" data-frame>
+        <div class="frame-img"><div class="frame-photo" style="background-image:url('assets/frame-2.jpg');background-position:50% 45%;"></div></div>
+        <p class="headline">Then <span class="grad">check out</span> ORF&rsquo;s transformation.</p>
+      </div>
+      <div class="frame" data-frame>
+        <div class="frame-img"><div class="frame-photo" style="background-image:url('assets/frame-3.jpg');background-position:50% 45%;"></div></div>
+        <p class="headline" style="font-size:36px;">Come fly<br><span class="grad">with us</span>.</p>
+      </div>
+      <div class="frame" data-frame>
+        <div class="frame-img"><div class="frame-photo" style="background-image:url('assets/endcard.jpg');background-position:50% 30%;"></div></div>
+        <img class="lockup" src="assets/lockup.svg" alt="Here &amp; There For You" />
+      </div>
+
+      <div class="cta">Fly ORF</div>
+      <div class="logo"><img src="assets/orf-logo.svg" alt="ORF — Norfolk International Airport" /></div>
+    </a>
+  </div>
+  <script>
+    (function(){(document.fonts?document.fonts.ready:Promise.resolve()).then(function(){[].forEach.call(document.querySelectorAll(".headline"),function(h){var fs=parseFloat(getComputedStyle(h).fontSize),g=0;while(h.scrollWidth>h.clientWidth+0.5&&fs>13&&g++<30){fs-=1;h.style.fontSize=fs+"px";}});});
+      var HOLD=2200, LOOPS=1;
+      var frames=[].slice.call(document.querySelectorAll(".frame"));
+      var END=frames.length-1; var order=[];
+      for(var l=0;l<LOOPS;l++) for(var i=0;i<END;i++) order.push(i);
+      order.push(END);
+      var step=0;
+      function show(i){ frames.forEach(function(f,idx){ f.classList.toggle("active", idx===i); }); }
+      function tick(){ show(order[step]); if(step<order.length-1){ step++; setTimeout(tick,HOLD); } }
+      tick();
+    })();
+  </script>
+  <script>(function(){var b=document.querySelector(".banner");if(b)b.addEventListener("click",function(){if(window.clickTag)window.open(window.clickTag,"_blank");});})();</script>
+</body>
+</html>
